@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lions Mental Health Awareness Campaign | WE SERVE</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Define Lions Brand Colors and Font */
+        :root {
+            --lions-blue: #00338d;
+            --lions-yellow: #ebb700;
+            --lions-gray: #55565a;
+        }
+
+        .bg-lions-blue { background-color: var(--lions-blue); }
+        .text-lions-blue { color: var(--lions-blue); }
+        .bg-lions-yellow { background-color: var(--lions-yellow); }
+        .text-lions-yellow { color: var(--lions-yellow); }
+        .border-lions-yellow { border-color: var(--lions-yellow); }
+
+        body { font-family: 'Inter', sans-serif; }
+
+        /* Custom styles for presentation slides */
+        .slide {
+            width: 100vw;
+            min-height: calc(100vh - 80px); 
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            transition: opacity 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        /* Mobile-First Table Structure for Slide 3 */
+        .calendar-table th, .calendar-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        @media (max-width: 640px) {
+            .calendar-table, .calendar-table thead, .calendar-table tbody, .calendar-table th, .calendar-table td, .calendar-table tr {
+                display: block;
+            }
+            .calendar-table thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            .calendar-table tr { 
+                margin: 0.75rem 0; 
+                border: 2px solid var(--lions-blue); 
+                border-radius: 0.5rem; 
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            .calendar-table td {
+                border: none;
+                border-bottom: 1px solid #e5e7eb;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+            }
+            .calendar-table td:before {
+                position: absolute;
+                top: 0.75rem;
+                left: 1rem;
+                width: 45%;
+                font-weight: 700;
+                text-align: left;
+                color: var(--lions-blue);
+                content: attr(data-label);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+
+    <!-- Header & Navigation Bar -->
+    <header id="nav" class="fixed top-0 w-full bg-lions-blue text-white shadow-xl z-10 p-4 flex justify-between items-center h-20">
+        <h1 class="text-2xl font-extrabold tracking-wider">LIONS SERVICE CAMPAIGN</h1>
+        <div class="flex space-x-3">
+            <button onclick="changeSlide(-1)" id="prevBtn" class="bg-lions-yellow text-gray-900 font-bold py-2 px-5 rounded-full shadow-lg hover:bg-yellow-400 transition transform hover:scale-105 duration-200 ease-in-out hidden">Back</button>
+            <button onclick="changeSlide(1)" id="nextBtn" class="bg-lions-yellow text-gray-900 font-bold py-2 px-5 rounded-full shadow-lg hover:bg-yellow-400 transition transform hover:scale-105 duration-200 ease-in-out">Next</button>
+        </div>
+    </header>
+
+    <!-- Presentation Container -->
+    <main class="pt-20">
+        <!-- Slide 1: Title Slide -->
+        <section id="slide-1" class="slide active text-center bg-lions-blue" style="min-height: 100vh;">
+             <!-- Placeholder Image for inspiration/context -->
+            <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('https://placehold.co/1200x800/00338d/fff?text=Mental+Health+Service');"></div>
+            
+            <div class="relative max-w-5xl p-6 md:p-12 rounded-3xl shadow-2xl bg-white bg-opacity-20 backdrop-blur-md border-4 border-lions-yellow/70">
+                <h1 class="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter mb-4 text-lions-yellow drop-shadow-lg">
+                    WE SERVE: MENTAL HEALTH AWARENESS
+                </h1>
+                <p class="text-xl md:text-3xl mb-12 font-extralight text-white tracking-wide">
+                    A Community Health Initiative by <span class="font-bold">\[Your Club Name]</span>
+                </p>
+                <h2 class="text-3xl md:text-5xl font-extrabold py-4 px-10 inline-block bg-lions-yellow text-gray-900 rounded-full shadow-2xl border-2 border-white/50 transform hover:scale-105 transition duration-300">
+                    OCTOBER 4 - 12, 2025
+                </h2>
+                <div class="mt-12 text-lg text-white opacity-80 font-medium">
+                    LIONS INTERNATIONAL
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Campaign Vision & Goal -->
+        <section id="slide-2" class="slide bg-gray-50 text-gray-800" style="min-height: 100vh;">
+            <div class="max-w-5xl p-8 rounded-3xl shadow-2xl bg-white border-t-8 border-lions-blue">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 text-lions-blue text-center">A HOLISTIC APPROACH TO COMMUNITY WELLNESS</h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-extrabold mb-4 text-lions-yellow border-b-2 border-lions-blue pb-2 flex items-center">
+                            <!-- SVG Placeholder for Mission -->
+                            <svg class="w-6 h-6 mr-3 fill-current text-lions-blue" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            Our Mission
+                        </h3>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            To **reduce the stigma** surrounding mental illness and provide accessible, practical resources that support both the mental and physical health of our community.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-extrabold mb-4 text-lions-yellow border-b-2 border-lions-blue pb-2 flex items-center">
+                            <!-- SVG Placeholder for Alignment -->
+                            <svg class="w-6 h-6 mr-3 fill-current text-lions-blue" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                            Alignment with Global Causes
+                        </h3>
+                        <ul class="list-none space-y-2 text-lg mb-6 pl-0">
+                            <li class="flex items-start before:content-['•'] before:text-lions-yellow before:text-2xl before:mr-2">
+                                Focused on **Health** (Mental Health, Disease Prevention).
+                            </li>
+                            <li class="flex items-start before:content-['•'] before:text-lions-yellow before:text-2xl before:mr-2">
+                                Integrating the **Eye Clinic** for a comprehensive, holistic approach to well-being.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 rounded-xl bg-lions-yellow text-gray-900 shadow-xl text-center">
+                    <p class="text-2xl font-black uppercase">
+                        Our Core Goal: To ensure every community member knows that <span class="text-lions-blue">their mental health matters</span> and that <span class="text-lions-blue">Lions are here to help</span>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Campaign Activation Schedule (Table) -->
+        <section id="slide-3" class="slide bg-lions-blue text-white" style="min-height: 100vh;">
+            <div class="max-w-6xl w-full p-6 md:p-8 rounded-3xl shadow-2xl bg-white/95 text-gray-900">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-8 text-lions-blue text-center border-b-4 border-lions-yellow pb-2">CAMPAIGN ACTIVATION SCHEDULE</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="calendar-table w-full border-collapse rounded-xl overflow-hidden shadow-2xl">
+                        <thead>
+                            <tr class="bg-lions-blue text-white uppercase text-sm md:text-base tracking-wider">
+                                <th class="py-4 px-6">Date</th>
+                                <th class="py-4 px-6">Event</th>
+                                <th class="py-4 px-6">Location / Focus</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 text-sm md:text-base font-medium">
+                            <tr class="hover:bg-gray-100 transition duration-150">
+                                <td data-label="Date" class="py-3 px-6 whitespace-nowrap font-bold text-lions-blue">October 4</td>
+                                <td data-label="Event" class="py-3 px-6 font-bold">Digital Launch of the Campaign</td>
+                                <td data-label="Location / Focus" class="py-3 px-6 italic">Online / Kick-starting social media and resource sharing.</td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50 bg-yellow-50 transition duration-150">
+                                <td data-label="Date" class="py-3 px-6 whitespace-nowrap font-bold text-lions-blue">October 5</td>
+                                <td data-label="Event" class="py-3 px-6 font-bold">Visit to Old-Age Home at 13th Mile</td>
+                                <td data-label="Location / Focus" class="py-3 px-6 italic">Old-Age Home / Focused on companionship and reducing isolation.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-100 transition duration-150">
+                                <td data-label="Date" class="py-3 px-6 whitespace-nowrap font-bold text-lions-blue">October 6 - 8</td>
+                                <td data-label="Event" class="py-3 px-6 font-bold">Leo Club Planning & Activations</td>
+                                <td data-label="Location / Focus" class="py-3 px-6 italic">With Anula and Trinity / Engaging youth in planning educational outreach.</td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50 bg-yellow-50 transition duration-150">
+                                <td data-label="Date" class="py-3 px-6 whitespace-nowrap font-bold text-lions-blue">October 9</td>
+                                <td data-label="Event" class="py-3 px-6 font-bold">Eye Clinic & Wellness Camp</td>
+                                <td data-label="Location / Focus" class="py-3 px-6 italic">Uprety Yoga Centre / Offering free eye check-ups and introducing stress-reduction techniques.</td>
+                            </tr>
+                            <tr class="bg-lions-yellow/70 hover:bg-lions-yellow transition duration-150 border-y-4 border-lions-blue">
+                                <td data-label="Date" class="py-4 px-6 whitespace-nowrap font-black text-lions-blue text-lg">October 10</td>
+                                <td data-label="Event" class="py-4 px-6 font-black text-lg">World Mental Health Day</td>
+                                <td data-label="Location / Focus" class="py-4 px-6 italic font-bold">**Wellness Walk & Industrial Park** / High-visibility public event and outreach.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-100 transition duration-150">
+                                <td data-label="Date" class="py-3 px-6 whitespace-nowrap font-bold text-lions-blue">October 12</td>
+                                <td data-label="Event" class="py-3 px-6 font-bold">Mega Workshop on Mental Health</td>
+                                <td data-label="Location / Focus" class="py-3 px-6 italic">**Town Hall** / Featuring expert speakers and comprehensive resource distribution.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Spotlight: World Mental Health Day (Oct 10) -->
+        <section id="slide-4" class="slide bg-white text-gray-800" style="min-height: 100vh;">
+            <div class="max-w-5xl p-8 rounded-3xl shadow-2xl border-4 border-lions-yellow">
+                <h2 class="text-4xl md:text-5xl font-black mb-10 text-lions-yellow text-center border-b-4 border-lions-blue pb-4">OUR SIGNATURE EVENT: WORLD MENTAL HEALTH DAY</h2>
+
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div class="p-6 rounded-xl bg-blue-50 shadow-lg hover:shadow-xl transition duration-300">
+                         <!-- SVG Placeholder for Walk -->
+                        <svg class="w-10 h-10 mb-3 text-lions-blue" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.8L12 9l2 3.5 1-4c1.2 1.3 2 3.2 2 5.5v5h-2v-5c0-1.7-.6-3.3-1.6-4.4L13 12.5V17h-2v-5.6l-.9 2.5H7l1.5-4L6.3 7H9l1.8 1.8z"/></svg>
+                        <h3 class="text-2xl font-bold mb-3 text-lions-blue">The Community Wellness Walk</h3>
+                        <p class="text-lg mb-2 font-medium">
+                            **Objective:** Promote physical activity as a powerful tool for improving mental well-being and show **community solidarity**.
+                        </p>
+                        <p class="text-base">
+                            **Action:** A high-visibility, public walk designed to generate media attention and encourage broad community participation.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-xl bg-yellow-50 shadow-lg hover:shadow-xl transition duration-300">
+                        <!-- SVG Placeholder for Factory/Outreach -->
+                        <svg class="w-10 h-10 mb-3 text-lions-yellow" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zm0-4h14v-2H5v2zm13-5h-2V7h2v4zM4 3h16a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm1 2v9h14V5H5z"/></svg>
+                        <h3 class="text-2xl font-bold mb-3 text-lions-blue">Industrial Park Outreach</h3>
+                        <p class="text-lg mb-2 font-medium">
+                            **Objective:** Directly address the stress and unique mental health challenges faced by the **busy working population**.
+                        </p>
+                        <p class="text-base">
+                            **Action:** Distributing essential educational materials and contact information for local support services right where they are needed.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center bg-lions-blue text-white p-6 rounded-xl shadow-xl">
+                    <p class="text-2xl font-extrabold tracking-wide">Our Goal: A unified display of commitment to health, reaching those who need the conversation most.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Collaboration and Support -->
+        <section id="slide-5" class="slide bg-lions-blue text-white" style="min-height: 100vh;">
+            <div class="max-w-5xl p-8 rounded-3xl shadow-2xl bg-white/95 text-gray-900 border-b-8 border-lions-yellow">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-10 text-lions-blue text-center border-b-4 border-lions-yellow pb-4">STRENGTH THROUGH PARTNERSHIP</h2>
+
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-lions-blue border-b border-gray-300 pb-2">Collaborating for Maximum Impact</h3>
+                        <p class="text-lg mb-4">We extend gratitude to our key partners who make this comprehensive campaign possible:</p>
+                        <ul class="list-disc list-inside space-y-3 text-xl font-semibold pl-4">
+                            <li class="text-lions-blue">Leo Club</li>
+                            <li class="text-lions-blue">Anula and Trinity</li>
+                            <li class="text-lions-blue">Uprety Yoga Centre</li>
+                            <li class="text-lions-blue">Town Hall Administration</li>
+                        </ul>
+                    </div>
+                    <div class="p-5 rounded-xl bg-yellow-100/50 border border-lions-yellow">
+                        <h3 class="text-2xl font-bold mb-4 text-lions-blue border-b border-gray-300 pb-2">Call to Action: How You Can Serve</h3>
+                        <p class="text-lg mb-4 font-medium">We need your support to ensure the success of the final events:</p>
+                        <ol class="list-decimal list-inside space-y-3 text-lg pl-4 font-semibold">
+                            <li>**Volunteer Support:** Seeking **15 more volunteers** for event logistics (Oct 9, 10, and 12).</li>
+                            <li>**Resource Support:** Donations to cover the cost of printing educational brochures and refreshments for the Wellness Walk.</li>
+                            <li>**Promote:** Share the digital campaign materials and invite the wider community to the Mega Workshop.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Conclusion -->
+        <section id="slide-6" class="slide bg-lions-yellow text-gray-900" style="min-height: 100vh;">
+            <div class="max-w-4xl p-8 md:p-12 rounded-3xl shadow-2xl bg-white text-center border-t-8 border-lions-blue transform scale-105">
+                <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-lions-blue drop-shadow-md">THANK YOU</h2>
+
+                <p class="text-xl md:text-2xl mb-10 leading-relaxed font-medium">
+                    By tackling mental health awareness, we are building a stronger, healthier, and more resilient community. This campaign is an investment in the people we serve.
+                </p>
+
+                <h3 class="text-6xl md:text-7xl font-black mt-12 mb-6 text-lions-yellow tracking-widest bg-lions-blue py-3 px-8 rounded-xl shadow-2xl transform rotate-1">
+                    WE SERVE
+                </h3>
+                <p class="text-lg font-semibold text-lions-blue">LIONS INTERNATIONAL</p>
+
+                <div class="mt-12 pt-6 border-t-2 border-gray-300">
+                    <p class="text-lg font-bold">Contact for Partnership:</p>
+                    <p class="text-xl mt-1">\[Your Name] | \[Your Position]</p>
+                    <p class="text-xl">\[Your Club Email or Phone Number]</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript for simple slide navigation
+        let currentSlide = 1;
+        const totalSlides = 6;
+
+        function updateSlideVisibility() {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Show the current slide
+            const activeSlide = document.getElementById(`slide-${currentSlide}`);
+            if (activeSlide) {
+                activeSlide.classList.add('active');
+            }
+
+            // Update button visibility
+            document.getElementById('prevBtn').classList.toggle('hidden', currentSlide === 1);
+            document.getElementById('nextBtn').classList.toggle('hidden', currentSlide === totalSlides);
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 1 && newSlide <= totalSlides) {
+                currentSlide = newSlide;
+                updateSlideVisibility();
+                window.scrollTo(0, 0); // Scroll to top on slide change
+            }
+        }
+
+        // Initial call to set up the first slide
+        window.onload = updateSlideVisibility;
+    </script>
+</body>
+</html>
+
